@@ -7,12 +7,10 @@
 .container {
     width: 100%;
     display: flex;
-    background-color: aquamarine;
 }
 
 .full-img {
     flex-grow: 1;
-    background-color: blueviolet;
 }
 
 .sidebar {
@@ -22,22 +20,31 @@
     position: relative;
 }
 
+.sidebar .fa-chevron-up {
+    top: 10px;
+}
+
+.sidebar .fa-chevron-down {
+    bottom: 10px;
+}
+
 .arrow {
     position: absolute;
     left: 50%;
     width: 50px;
     height: 50px;
-    background-color: chartreuse;
+    background-color: lightgrey;
     border-radius: 50%;
-    vertical-align: middle;
-    align-items: center;
-
+    text-align: center;
+    line-height: 50px;
+    font-size: 30px;
 }
 
 .side-img-container {
     width: 100%;
     height: 230px;
 }
+
 
 .side-img-container img {
     width: 100%;
