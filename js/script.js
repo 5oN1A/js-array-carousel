@@ -22,78 +22,73 @@ const text = [
     'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
 ];
 
-const fullImgContainer = document.querySelector(".full-img-container");
+const fullImg = document.querySelector(".full-img-container img");
+const fullImgTitle = document.querySelector(".full-img-text h1");
+const fullImgDescription = document.querySelector(".full-img-text p");
+//const sidebarContainer = document.querySelector(".side-img-container");
+//console.log(imgSidebar);
 
 
-let currentIndex = 3;
+let currentIndex = 0;
 
 //ciclo le immagini 
 for (let i = 0; i < items.length; i++) {
-    
-    const currentItem = items[i];
 
-    let classeActive = "";      
-    
+    let currentItem = items[i];
+    let currentTitle = title[i];
+    let currentText = text[i];
+ //   let sideBarImg = items[i];
+
     if (i === currentIndex) {
-        classeActive = "active";
+        fullImg.src = `${currentItem}`;
+        console.log(fullImg);
+        fullImgTitle.innerHTML = `${currentTitle}`;
+        console.log(fullImgTitle);
+        fullImgDescription.innerHTML = `${currentText}`;
+        console.log(fullImgDescription);
     }
-    const tagImg = `<img class="${classeActive}" src="${currentItem}" alt="immagine #${i}">`;
 
-fullImgContainer.innerHTML += tagImg;
 }
 
+
+
 const arrowUp = document.querySelector(".fa-chevron-up");
-const arrowDown = document.querySelector(".fa-chevron-down")
+const arrowDown = document.querySelector(".fa-chevron-down");
 
+let newFullImg = document.querySelector(".full-img-container img");
+let newFullImgTitle = document.querySelector(".full-img-text h1");
+let newFullImgDescription = document.querySelector(".full-img-text p");
 
-arrowUp.addEventListener ("click", function(){
+arrowDown.addEventListener("click", function () {
 
-    
-    let activeElement = document.querySelector(".full-img-container .active");
-
-    activeElement.classList.remove("active");
-
-    currentIndex--;
-
-    if (currentIndex < 0) {
-        currentIndex = items.length - 1;
-      }
-
-      console.log(currentIndex)
-
-    let itemsList = fullImgContainer.querySelectorAll("img");
-
-     console.log(itemsList);
-
-    let nextActiveElement = itemsList[currentIndex];
-    
-   nextActiveElement.classList.add("active");
-
-})
-
-arrowDown.addEventListener ("click", function(){
-
-    
-    let activeElement = document.querySelector(".full-img-container .active");
-
-    activeElement.classList.remove("active");
-
-    currentIndex++;
+    currentIndex = currentIndex + 1;
 
     if (currentIndex > items.length - 1) {
         currentIndex = 0;
-      }
+    }
 
-      console.log(currentIndex)
+    newFullImg.src = `${items[currentIndex]}`;
+    newFullImgTitle.innerHTML = `${title[currentIndex]}`;
+    newFullImgDescription.innerHTML = `${text[currentIndex]}`;
 
-    let itemsList = fullImgContainer.querySelectorAll("img");
+  
+});
 
-     console.log(itemsList);
+arrowUp.addEventListener("click", function () {
 
-    let nextActiveElement = itemsList[currentIndex];
-    
-   nextActiveElement.classList.add("active");
+    currentIndex = currentIndex - 1;
 
-})
+    if (currentIndex < 0) {
+        currentIndex = items.length - 1;
+    }
+
+    newFullImg.src = `${items[currentIndex]}`;
+    newFullImgTitle.innerHTML = `${title[currentIndex]}`;
+    newFullImgDescription.innerHTML = `${text[currentIndex]}`;
+
+});
 
 
+
+let imgFull =document.querySelector(".full-img-container img");
+console.log(imgFull);
